@@ -1,0 +1,113 @@
+:root {
+    --primary-bg-color: #ffffff;
+    --text-color: #202729;
+    --btn-bg-color: #705c8c;
+    --btn-hover-bg-color: #7b6698;
+}
+
+body, h1, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-bg-color);
+    padding: 1rem 2rem; 
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 5rem; /* adjusts padding to account for sticky nav */
+}
+
+h1 {
+    color: var(--text-color);
+}
+
+.btn {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--btn-bg-color);
+    color: #ffffff;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; 
+    padding: 2rem; 
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+/* Breakpoint: 3 cards across */
+@media (max-width: 1500px) {
+    .book-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Breakpoint: 2 cards across */
+@media (max-width: 1000px) {
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Breakpoint: 1 card across */
+@media (max-width: 700px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.book-card {
+    background-color: var(--primary-bg-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.book-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.unread-btn {
+    width: 100%; 
+    margin-top: 1rem; 
+}
+
+.read-btn {
+    background-color: #4CAF50;  /* Green for Read */
+}
+
+.unread-btn {
+    background-color: #91171F;  /* Red for Unread */
+}
