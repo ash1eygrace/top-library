@@ -13,7 +13,19 @@
         </nav>
         
         <div class="book-grid">
-  
+            
+        </div>
+        
+        <div id="add-book-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <form id="add-book-form">
+                    <input type="text" id="book-title" placeholder="Book Title" required>
+                    <input type="text" id="book-author" placeholder="Author" required>
+                    <input type="number" id="book-pages" placeholder="Pages" required>
+                    <button type="submit" class="btn">Add Book</button>
+                </form>
+            </div>
         </div>
         
         <script src="script.js"></script>

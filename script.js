@@ -175,3 +175,44 @@ function displayBook(book, index) {
 
 // Iterating over the books array and displaying each one
 myLibrary.forEach((book, index) => displayBook(book, index));
+
+// Reference to the add book button
+const addBookBtn = document.getElementById('add-book-btn');
+
+// Reference to the modal and its elements
+const modal = document.getElementById('add-book-modal');
+const closeBtn = document.querySelector('.close-btn');
+const addBookForm = document.getElementById('add-book-form');
+
+// Event listener to open the modal
+addBookBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+});
+
+// Event listener to close the modal
+closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+// Event listener to add book
+addBookForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('book-title').value;
+    const author = document.getElementById('book-author').value;
+    const pages = document.getElementById('book-pages').value;
+
+    const newBook = {
+        title: title,
+        author: author,
+        pages: pages,
+        read: false
+    };
+
+    myLibrary.push(newBook);
+    displayBook(newBook, myLibrary.length - 1);
+    
+    // Clear form and close modal
+    addBookForm.reset();
+    modal.style.display = 'none';
+});

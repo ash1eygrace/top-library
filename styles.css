@@ -111,3 +111,46 @@ h1 {
 .unread-btn {
     background-color: #91171F;  /* Red for Unread */
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: var(--primary-bg-color);
+    padding: 1rem;
+    border-radius: 5%;
+    max-width: 350px;
+    min-height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+    color: var(--text-color);
+    float: right;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#add-book-form input {
+    margin: 0.5rem 0;
+    padding: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
