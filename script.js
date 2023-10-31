@@ -1,10 +1,17 @@
-function Book() {
-    // the constructor...
-  }
-  
-  function addBookToLibrary() {
-    // do stuff here
-  }
+// Book constructor
+function Book(title, author, pages, read=false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+ 
+// Array to store books
+function addBookToLibrary(title, author, pages) {
+    const newBook = new Book(title, author, pages);
+    myLibrary.push(newBook);
+    return newBook; 
+}
 
 
 // Reference to the book grid element
@@ -79,14 +86,7 @@ addBookForm.addEventListener('submit', function(event) {
     const author = document.getElementById('book-author').value;
     const pages = document.getElementById('book-pages').value;
 
-    const newBook = {
-        title: title,
-        author: author,
-        pages: pages,
-        read: false
-    };
-
-    myLibrary.push(newBook);
+    const newBook = addBookToLibrary(title, author, pages);
     displayBook(newBook, myLibrary.length - 1);
     
     // Clear form and close modal
