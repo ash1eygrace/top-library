@@ -7,8 +7,8 @@ function Book(title, author, pages, read=false) {
 }
  
 // Array to store books
-function addBookToLibrary(title, author, pages) {
-    const newBook = new Book(title, author, pages);
+function addBookToLibrary(title, author, pages, read=false) {
+    const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     return newBook; 
 }
@@ -71,6 +71,7 @@ const addBookForm = document.getElementById('add-book-form');
 // Event listener to open the modal
 addBookBtn.addEventListener('click', function() {
     modal.style.display = 'block';
+    document.getElementById('book-read').checked = false;
 });
 
 // Event listener to close the modal
@@ -85,8 +86,9 @@ addBookForm.addEventListener('submit', function(event) {
     const title = document.getElementById('book-title').value;
     const author = document.getElementById('book-author').value;
     const pages = document.getElementById('book-pages').value;
+    const read = document.getElementById('book-read').checked;
 
-    const newBook = addBookToLibrary(title, author, pages);
+    const newBook = addBookToLibrary(title, author, pages, read);
     displayBook(newBook, myLibrary.length - 1);
     
     // Clear form and close modal

@@ -127,17 +127,21 @@ h1 {
     background-color: var(--primary-bg-color);
     padding: 1rem;
     border-radius: 5%;
-    max-width: 350px;
+    max-width: 300px;
     min-height: 250px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .close-btn {
     color: var(--text-color);
+    align-self: flex-end;
     float: right;
     font-size: 1rem;
     font-weight: bold;
@@ -153,4 +157,23 @@ h1 {
     padding: 1.2rem;
     width: 100%;
     box-sizing: border-box;
+}
+
+#add-book-form label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+
+#add-book-form label span {
+    white-space: nowrap;
+    flex: 1;            
+}
+
+#add-book-form input[type="checkbox"] {
+    width: auto;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
 }
