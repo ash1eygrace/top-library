@@ -99,19 +99,6 @@ h1 {
     align-items: center; 
 }
 
-.unread-btn {
-    width: 100%; 
-    margin-top: 1rem; 
-}
-
-.read-btn {
-    background-color: #4CAF50;  /* Green for Read */
-}
-
-.unread-btn {
-    background-color: #91171F;  /* Red for Unread */
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -176,4 +163,37 @@ h1 {
     width: auto;
     flex-shrink: 0;
     margin-left: 0.5rem;
+}
+
+.book-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Align the buttons vertically in the center */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.book-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Align the buttons vertically in the center */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.action-btn{
+    padding: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--btn-bg-color);
+    color: #ffffff;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.read-btn {
+    background-color: #c69ce1;  /* Green for Read */
 }

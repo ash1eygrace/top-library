@@ -13,7 +13,6 @@ function addBookToLibrary(title, author, pages, read=false) {
     return newBook; 
 }
 
-
 // Reference to the book grid element
 const bookGrid = document.querySelector('.book-grid');
 
@@ -36,23 +35,40 @@ function displayBook(book, index) {
     bookDetails.appendChild(author);
     bookDetails.appendChild(pages);
 
-    const readBtn = document.createElement('button');
-    readBtn.className = 'btn ' + (book.read ? 'read-btn' : 'unread-btn');
-    readBtn.textContent = book.read ? 'Read' : 'Unread';
+    // Create div for action buttons (delete/read and unread)
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'book-card-actions';
 
-    readBtn.addEventListener('click', function() {
-        // Toggle book's read status
-        book.read = !book.read;
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'action-btn delete-btn';
+    deleteButton.textContent = 'Delete';
 
-        // Update button text and class
-        readBtn.textContent = book.read ? 'Read' : 'Unread';
-        readBtn.classList.toggle('read-btn');
-        readBtn.classList.toggle('unread-btn');
+    deleteButton.addEventListener('click', function() {
+        myLibrary.splice(index, 1);
+        displayLibrary();
     });
+
+    const readButton = document.createElement('button');
+    if(book.read) {
+        readButton.className = 'action-btn read-btn';
+        readButton.textContent = 'Read';
+    } else {
+        readButton.className = 'action-btn unread-btn';
+        readButton.textContent = 'Unread';
+    }
+
+    readButton.addEventListener('click', function() {
+        book.read = !book.read;
+        displayLibrary();
+    });
+
+    actionsDiv.appendChild(deleteButton);
+    actionsDiv.appendChild(readButton);
 
     bookCard.appendChild(title);
     bookCard.appendChild(bookDetails);
-    bookCard.appendChild(readBtn);
+
+    bookCard.appendChild(actionsDiv);
     
     bookGrid.appendChild(bookCard);
 }
@@ -95,3 +111,10 @@ addBookForm.addEventListener('submit', function(event) {
     addBookForm.reset();
     modal.style.display = 'none';
 });
+
+function displayLibrary() {
+    bookGrid.innerHTML = '';
+    myLibrary.forEach((book, index) => {
+        displayBook(book, index);
+    });
+}
