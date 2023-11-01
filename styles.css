@@ -21,19 +21,19 @@ body, h1, button {
     position: fixed;
     top: 0;
     left: 0;
-    right:0;
+    right: 0;
     z-index: 1000;
 }
 
 body {
-    padding-top: 5rem; /* adjusts padding to account for sticky nav */
+    padding-top: 5rem; 
 }
 
 h1 {
     color: var(--text-color);
 }
 
-.btn {
+.btn, .action-btn {
     border: none;
     outline: none;
     box-shadow: none;
@@ -51,28 +51,29 @@ h1 {
 
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 1rem; 
     padding: 2rem; 
     max-width: 2000px;
     margin: 0 auto;
 }
 
-/* Breakpoint: 3 cards across */
+/* Set initial grid template columns */
+.book-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 1500px) {
     .book-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Breakpoint: 2 cards across */
 @media (max-width: 1000px) {
     .book-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Breakpoint: 1 card across */
 @media (max-width: 700px) {
     .book-grid {
         grid-template-columns: 1fr;
@@ -88,7 +89,6 @@ h1 {
     min-height: 250px;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
 }
 
 .book-details {
@@ -150,13 +150,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-}
-
-#add-book-form label span {
-    white-space: nowrap;
-    flex: 1;            
+    margin: .5rem 0;
 }
 
 #add-book-form input[type="checkbox"] {
@@ -168,32 +162,11 @@ h1 {
 .book-card-actions {
     display: flex;
     justify-content: space-between;
-    align-items: center;  /* Align the buttons vertically in the center */
+    align-items: center; 
     width: 100%;
     margin-top: 1rem;
-}
-
-.book-card-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;  /* Align the buttons vertically in the center */
-    width: 100%;
-    margin-top: 1rem;
-}
-
-.action-btn{
-    padding: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    background-color: var(--btn-bg-color);
-    color: #ffffff;
-    border-radius: 5%;
-    cursor: pointer;
 }
 
 .read-btn {
-    background-color: #c69ce1;  /* Green for Read */
+    background-color: #c69ce1;
 }
